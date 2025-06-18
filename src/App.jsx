@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import TinderCard from 'react-tinder-card';
 import { Toaster, toast } from 'react-hot-toast';
 import { properties } from './data/properties';
@@ -13,7 +12,7 @@ function App() {
   });
   const [history, setHistory] = useState([]);
   const [viewingLikes, setViewingLikes] = useState(false);
-  const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('likedProperties', JSON.stringify(liked));
@@ -42,76 +41,92 @@ function App() {
     toast.error('Removed from favorites');
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center">
-      <Toaster position="top-center" reverseOrder={false} />
+    <div className={`${darkMode ? 'dark' : ''}`}>
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6 flex flex-col items-center">
 
-      {/* Branding Header */}
-      <header className="w-full max-w-xl flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold text-blue-700 tracking-tight">🏡 SwipeNest</h1>
-        <span className="text-sm text-gray-500">Find your next home</span>
-      </header>
+        {/* Toast Notifications */}
+        <Toaster position="top-center" reverseOrder={false} />
 
-      {!viewingLikes ? (
-        <>
-          {index < properties.length ? (
-            <div className="relative w-80 h-[400px]">
-              <TinderCard
-                key={properties[index].id}
-                onSwipe={(dir) => handleSwipe(dir, properties[index])}
-                preventSwipe={['up', 'down']}
-                className="absolute"
+        {/* Header */}
+        <header className="w-full max-w-xl flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold text-blue-700 dark:text-blue-300">🏡 SwipeNest</h1>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Find your next home</span>
+          </div>
+          <button
+            onClick={toggleDarkMode}
+            className="bg-gray-200 dark:bg-gray-700 text-sm px-3 py-1 rounded-xl"
+          >
+            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+          </button>
+        </header>
+
+        {!viewingLikes ? (
+          <>
+            {index < properties.length ? (
+              <div className="relative w-80 h-[400px]">
+                <TinderCard
+                  key={properties[index].id}
+                  onSwipe={(dir) => handleSwipe(dir, properties[index])}
+                  preventSwipe={['up', 'down']}
+                  className="absolute"
+                >
+                  <div className="w-80 transition-transform duration-300 ease-in-out">
+                    <PropertyCard property={properties[index]} />
+                  </div>
+                </TinderCard>
+              </div>
+            ) : (
+              <h2 className="text-2xl font-bold mb-4">No more properties!</h2>
+            )}
+
+            <div className="mt-4 flex flex-col items-center space-y-2">
+              <button
+                onClick={handleGoBack}
+                className="bg-yellow-500 hover:bg-yellow-400 text-white px-4 py-2 rounded-xl shadow"
               >
-                <div className="w-80 transition-transform duration-300 ease-in-out">
-                  <PropertyCard property={properties[index]} />
-                </div>
-              </TinderCard>
+                ⬅ Back
+              </button>
+              <button
+                onClick={() => setViewingLikes(true)}
+                className="underline text-blue-700 dark:text-blue-300 hover:text-blue-500"
+              >
+                ❤️ View Liked Properties ({liked.length})
+              </button>
             </div>
-          ) : (
-            <h1 className="text-2xl font-bold mb-4">No more properties!</h1>
-          )}
-
-          <div className="mt-4 flex flex-col items-center space-y-2">
+          </>
+        ) : (
+          <div className="w-full max-w-lg">
+            <h2 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-300">Your Liked Properties</h2>
+            {liked.length === 0 ? (
+              <p className="text-gray-600 dark:text-gray-400">You haven’t liked any properties yet.</p>
+            ) : (
+              liked.map((property) => (
+                <div key={property.id} className="mb-6 relative">
+                  <PropertyCard property={property} />
+                  <button
+                    onClick={() => removeLiked(property.id)}
+                    className="mt-2 bg-red-500 hover:bg-red-400 text-white px-3 py-1 rounded shadow-sm"
+                  >
+                    ✕ Remove
+                  </button>
+                </div>
+              ))
+            )}
             <button
-              onClick={handleGoBack}
-              className="bg-yellow-500 hover:bg-yellow-400 text-white px-4 py-2 rounded-xl shadow"
+              onClick={() => setViewingLikes(false)}
+              className="mt-6 underline text-blue-600 dark:text-blue-300"
             >
-              Back
-            </button>
-            <button
-              onClick={() => setViewingLikes(true)}
-              className="underline text-blue-700 hover:text-blue-500"
-            >
-              View Liked Properties ({liked.length})
+              ⬅ Back to Browse
             </button>
           </div>
-        </>
-      ) : (
-        <div className="w-full max-w-lg">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">Your Liked Properties</h2>
-          {liked.length === 0 ? (
-            <p className="text-gray-600">You haven’t liked any properties yet.</p>
-          ) : (
-            liked.map((property) => (
-              <div key={property.id} className="mb-6 relative">
-                <PropertyCard property={property} />
-                <button
-                  onClick={() => removeLiked(property.id)}
-                  className="mt-2 bg-red-500 hover:bg-red-400 text-white px-3 py-1 rounded shadow-sm"
-                >
-                  Remove
-                </button>
-              </div>
-            ))
-          )}
-          <button
-            onClick={() => setViewingLikes(false)}
-            className="mt-6 underline text-blue-600"
-          >
-            Back to Browse
-          </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
