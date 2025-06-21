@@ -18,21 +18,21 @@ export const properties = [
     title: "Stylish Property #3",
     price: "$1300/mo",
     location: "Texas City #3",
-    img: "https://source.unsplash.com/random/800x600?house,3"
+    img: "	https://plus.unsplash.com/premium_photo-1689609950…xMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 4,
     title: "Stylish Property #4",
     price: "$1400/mo",
     location: "Texas City #4",
-    img: "https://source.unsplash.com/random/800x600?house,4"
+    img: "	https://plus.unsplash.com/premium_photo-1689609949…xMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 5,
     title: "Stylish Property #5",
     price: "$1500/mo",
     location: "Texas City #5",
-    img: "https://source.unsplash.com/random/800x600?house,5"
+    img: "	https://plus.unsplash.com/premium_photo-1686167991…xMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 6,

@@ -3,6 +3,7 @@ import TinderCard from 'react-tinder-card';
 import { Toaster, toast } from 'react-hot-toast';
 import { properties } from './data/properties';
 import PropertyCard from './components/PropertyCard';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
   const [index, setIndex] = useState(0);
