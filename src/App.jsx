@@ -3,7 +3,6 @@ import TinderCard from 'react-tinder-card';
 import { Toaster, toast } from 'react-hot-toast';
 import { properties } from './data/properties';
 import PropertyCard from './components/PropertyCard';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
   const [index, setIndex] = useState(0);
@@ -37,9 +36,14 @@ function App() {
   };
 
   const removeLiked = (id) => {
-    const updated = liked.filter((property) => property.id !== id);
-    setLiked(updated);
-    toast.error('Removed from favorites');
+    setLiked((prevLiked) => {
+      const updated = prevLiked.filter((property) => property.id !== id);
+      localStorage.setItem('likedProperties', JSON.stringify(updated));
+      return updated;
+    });
+    setTimeout(() => {
+      toast.error('Removed from favorites');
+    }, 500);
   };
 
   const toggleDarkMode = () => {
@@ -63,7 +67,7 @@ function App() {
             onClick={toggleDarkMode}
             className="bg-gray-200 dark:bg-gray-700 text-sm px-3 py-1 rounded-xl"
           >
-            {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+            {darkMode ? 'Light Mode' : 'Dark Mode'}
           </button>
         </header>
 
@@ -95,9 +99,11 @@ function App() {
               </button>
               <button
                 onClick={() => setViewingLikes(true)}
-                className="underline text-blue-700 dark:text-blue-300 hover:text-blue-500"
+                className="bg-blue-700 hover:bg-blue-300 text-white px-4 py-2 rounded-xl shadow"
+                // underneath is to make the code look like a hyperlink.
+                //className="underline text-blue-700 dark:text-blue-300 hover:text-blue-500"
               >
-                ❤️ View Liked Properties ({liked.length})
+                View Liked Properties ({liked.length})
               </button>
             </div>
           </>
@@ -121,8 +127,8 @@ function App() {
             )}
             <button
               onClick={() => setViewingLikes(false)}
-              className="mt-6 underline text-blue-600 dark:text-blue-300"
-            >
+              className="bg-blue-700 hover:bg-blue-300 text-white px-4 py-2 rounded-xl shadow"
+              >
               ⬅ Back to Browse
             </button>
           </div>

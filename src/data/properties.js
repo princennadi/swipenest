@@ -1,72 +1,82 @@
 export const properties = [
   {
     id: 1,
-    title: "Modern Loft in Dallas",
-    price: "$2,100/mo",
-    location: "Dallas, TX",
+    title: "Modern Family Home",
+    location: "Plano, TX",
+    price: "$425,000",
+    sqft: "2,800 sqft",
     img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 2,
-    title: "Cozy Home in Denton",
-    price: "$1,500/mo",
-    location: "Denton, TX",
-    img: "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
+    title: "Urban Loft",
+    location: "Dallas, TX",
+    price: "$379,000",
+    sqft: "1,200 sqft",
+    img: "https://images.unsplash.com/photo-1600585154327-02d4c39e4f78?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 3,
-    title: "Stylish Property #3",
-    price: "$1300/mo",
-    location: "Texas City #3",
-    img: "	https://plus.unsplash.com/premium_photo-1689609950…xMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    title: "Luxury Condo",
+    location: "Austin, TX",
+    price: "$650,000",
+    sqft: "1,600 sqft",
+    img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 4,
-    title: "Stylish Property #4",
-    price: "$1400/mo",
-    location: "Texas City #4",
-    img: "	https://plus.unsplash.com/premium_photo-1689609949…xMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    title: "Spacious Townhouse",
+    location: "Frisco, TX",
+    price: "$490,000",
+    sqft: "2,300 sqft",
+    img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 5,
-    title: "Stylish Property #5",
-    price: "$1500/mo",
-    location: "Texas City #5",
-    img: "	https://plus.unsplash.com/premium_photo-1686167991…xMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    title: "Cozy Bungalow",
+    location: "Denton, TX",
+    price: "$289,000",
+    sqft: "1,100 sqft",
+    img: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 6,
-    title: "Stylish Property #6",
-    price: "$1600/mo",
-    location: "Texas City #6",
-    img: "https://source.unsplash.com/random/800x600?house,6"
+    title: "Mid-Century Retreat",
+    location: "Fort Worth, TX",
+    price: "$499,000",
+    sqft: "1,900 sqft",
+    img: "https://images.unsplash.com/photo-1600607681945-8fd5d2f227c2?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 7,
-    title: "Stylish Property #7",
-    price: "$1700/mo",
-    location: "Texas City #7",
-    img: "https://source.unsplash.com/random/800x600?house,7"
+    title: "Lakeview Cabin",
+    location: "Lake Dallas, TX",
+    price: "$320,000",
+    sqft: "1,500 sqft",
+    img: "https://images.unsplash.com/photo-1600585153934-157b4a0b7c1b?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 8,
-    title: "Stylish Property #8",
-    price: "$1800/mo",
-    location: "Texas City #8",
-    img: "https://source.unsplash.com/random/800x600?house,8"
+    title: "High-Rise Studio",
+    location: "Downtown Dallas, TX",
+    price: "$275,000",
+    sqft: "800 sqft",
+    img: "https://images.unsplash.com/photo-1586105251261-72a756497a12?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 9,
-    title: "Stylish Property #9",
-    price: "$1900/mo",
-    location: "Texas City #9",
-    img: "https://source.unsplash.com/random/800x600?house,9"
+    title: "Suburban Ranch",
+    location: "Lewisville, TX",
+    price: "$350,000",
+    sqft: "2,100 sqft",
+    img: "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 10,
-    title: "Stylish Property #10",
-    price: "$2000/mo",
-    location: "Texas City #10",
-    img: "https://source.unsplash.com/random/800x600?house,10"
+    title: "Modern Duplex",
+    location: "Irving, TX",
+    price: "$415,000",
+    sqft: "2,000 sqft",
+    img: "https://images.unsplash.com/photo-1613977257363-707ba9348220?auto=format&fit=crop&w=800&q=80"
   }
 ];
