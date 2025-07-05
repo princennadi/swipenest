@@ -4,4 +4,10 @@
 body {
     font-family: 'Poppins', sans-serif;
   }
-  
+.swiper-button-prev,
+.swiper-button-next {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.875rem;
+}
+

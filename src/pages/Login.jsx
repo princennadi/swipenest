@@ -1,4 +1,5 @@
 import React from 'react';
+import BottomNav from '../components/BottomNav'; // adjust path if needed
 
 const Login = () => {
   return (
